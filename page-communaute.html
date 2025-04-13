@@ -3,68 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>connexion </title>
-  <meta name="description" content="Rejoins un groupe Facebook actif autour du développement web, de l'IA, et de l'apprentissage collaboratif.">
-  <link rel="stylesheet" href="stylisation.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Mon Blog Simple</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --hue: 330;
+      --first-color: #e49ab0;
+      --first-color-alt: hsl(var(--hue), 56%, 35%);
+      --title-color: hsl(0, 0%, 100%);
+      --text-color: hsl(228, 8%, 75%);
+      --body-color: #0d0d11;
+      --glass-color: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --shadow-color: rgba(228, 154, 176, 0.2);
+
+      --body-font: 'Roboto', sans-serif;
+      --font-heading: 'Orbitron', sans-serif;
+
+      --transition: all 0.4s ease;
+      --scale-hover: 1.05;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background: linear-gradient(160deg, #0d0d11 0%, #1a1a1f 100%);
+      color: var(--text-color);
+      overflow-x: hidden;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      background: radial-gradient(circle at top, rgba(255, 182, 193, 0.1), transparent 70%);
+      padding: 4rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: var(--first-color);
+      text-shadow: 0 0 15px var(--first-color);
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    main h2 {
+      font-family: var(--font-heading);
+      color: var(--first-color);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    article {
+      background: var(--glass-color);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 6px 20px var(--shadow-color);
+      transition: var(--transition);
+    }
+
+    article:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 30px rgba(228, 154, 176, 0.3);
+    }
+
+    article h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--first-color);
+      text-shadow: 0 0 5px var(--first-color);
+    }
+
+    .date {
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+
+    article p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .read-more {
+      color: var(--first-color);
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .read-more:hover {
+      border-color: var(--first-color);
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .actions h2 {
+      font-family: var(--font-heading);
+      color: var(--first-color);
+      margin-bottom: 1.5rem;
+    }
+
+    .actions button {
+      background: var(--first-color);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      border-radius: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--first-color);
+      transition: var(--transition);
+    }
+
+    .actions button:hover {
+      transform: scale(var(--scale-hover));
+      box-shadow: 0 0 25px var(--first-color-alt);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--text-color);
+      padding: 3rem 1rem 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+      margin-top: 4rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.3rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <section class="hero">
-    <h1>Rejoins notre Communauté</h1>
-    <p>Un groupe Facebook dynamique pour les passionnés de code, d’IA et de développement web. Apprends, partage, collabore, inspire. Que tu sois novice ou pro, tu as ta place chez nous !</p>
-    <a href="https://facebook.com/groups/1190124518960551/" class="cta" target="_blank">Je Rejoins le Groupe</a>
-  </section>
+  <header>
+    <h1>Mon Blog Simple</h1>
+    <p>Bienvenue sur mon blog sans images</p>
+  </header>
 
-  <section class="topics">
-    <div class="topic">
-      <div class="topic-title">Informatique</div>
-      <div class="topic-description">
-        Passionné(e) de dev web, IA ou full stack ? Rejoins <strong>Chatbot Créé</strong>, un espace pour coder, échanger et grandir ensemble.
-      </div>
-    </div>
-    <div class="topic">
-      <div class="topic-title">Technologie</div>
-      <div class="topic-description">
-        Débutant ou expert ? Partage tes projets, trouve du soutien, découvre les dernières techs (React, GPT, Node.js, Next.js...).
-      </div>
-    </div>
-    <div class="topic">
-      <div class="topic-title">Développement Intellectuel</div>
-      <div class="topic-description">
-        Progresse vite, motive-toi, apprends des autres et montre ce que tu sais faire dans une ambiance chill mais productive.
-      </div>
-    </div>
-    <div class="topic">
-      <div class="topic-title">Évolution</div>
-      <div class="topic-description">
-        Le monde dev change chaque jour. Sois entouré de passionnés qui avancent avec toi vers l’avenir (IA, microservices, dev cloud).
-      </div>
-    </div>
-    <div class="topic">
-      <div class="topic-title">Full Stack Web</div>
-      <div class="topic-description">
-        Maîtrise frontend & backend avec les dernières technos : React, Vue.js, Node.js, Express, MongoDB, et bien plus encore.
-      </div>
-    </div>
-    <div class="topic">
-      <div class="topic-title">Intelligence Artificielle</div>
-      <div class="topic-description">
-        Découvre TensorFlow, OpenAI, GPT et booste tes projets avec des outils intelligents et puissants.
-      </div>
-    </div>
-    <div class="topic">
-      <div class="topic-title">Automatisation & DevOps</div>
-      <div class="topic-description">
-        Boost ta productivité avec les workflows DevOps, CI/CD, Docker, GitHub Actions, et bien plus encore.
-      </div>
-    </div>
-  </section>
+  <main>
+    <h2>Derniers Articles</h2>
+    <section class="topics">
+      <article>
+        <h2>Titre du Premier Article</h2>
+        <span class="date">Publié le 15 mars 2024</span>
+        <p>Ceci est le contenu du premier article. Il est important de fournir un texte significatif pour donner une idée de ce que contient l'article.</p>
+        <a href="#" class="read-more">Lire la suite</a>
+      </article>
 
-  
+      <article>
+        <h2>Titre du Deuxième Article</h2>
+        <span class="date">Publié le 10 mars 2024</span>
+        <p>Voici le contenu du deuxième article. Il aborde un sujet différent et offre des informations supplémentaires.</p>
+        <a href="#" class="read-more">Lire la suite</a>
+      </article>
+
+      <article>
+        <h2>Titre du Troisième Article</h2>
+        <span class="date">Publié le 05 mars 2024</span>
+        <p>Ce troisième article contient des détails importants. C'est un exemple pour montrer la structure répétitive des articles de blog.</p>
+        <a href="#" class="read-more">Lire la suite</a>
+      </article>
+    </section>
+  </main>
+
+  <div class="actions">
+    <h2>Actions</h2>
+    <button>Article Précédent</button>
+    <button>Article Suivant</button>
+    <button>Voir Tous les Articles</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Mon Blog Simple. Tous droits réservés.</p>
+  </footer>
 
 </body>
 </html>
