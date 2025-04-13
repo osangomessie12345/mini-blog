@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>authentification</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+   </style>
+</head>
+<body>
+
+  <div class="container" id="auth-container">
+    <h2 id="form-title">Connexion</h2>
+    <section>
+      <input type="text" id="fullname" placeholder="Nom complet" style="display:none;" />
+      <input type="email" id="email" placeholder="Adresse email" style="display:none;" />
+      <input type="text" id="username" placeholder="Nom d'utilisateur" />
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Mot de passe" />
+        <button class="toggle-password" onclick="togglePassword()" type="button">&#128065;</button>
+      </div>
+      <button class="btn-login" onclick="handleSubmit()">Se connecter</button>
+      <button class="btn-register" style="display:none;" onclick="handleSubmit()">S'inscrire</button>
+      <div class="toggle">
+        Pas encore inscrit ? <a onclick="toggleMode()">Créer un compte</a>
+      </div>
+      <div id="message"></div>
+    </section>
+  </div>
+
+  <script src="script.js">
+
+  </script>
+
+</body>
+</html>
